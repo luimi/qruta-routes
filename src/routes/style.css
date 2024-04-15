@@ -1,0 +1,47 @@
+.container {
+  padding: 10px;
+  overflow-y: hidden;
+}
+.information {
+  display: flex;
+}
+.information .item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--primary);
+}
+.information .item .icon {
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+.route {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.route .icon {
+  border: 2px solid var(--primary);
+  border-bottom: 5px solid var(--primary);
+  border-radius: 5px;
+  padding: 5px;
+  white-space: nowrap;
+  color: var(--primary);
+}
+.route .icon span,
+.route .detail {
+  margin-left: 5px;
+}
+.route .detail {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-self: center;
+  color: #666;
+}
+.logo {
+  max-height: 50px;
+  margin-bottom: 15px;
+}

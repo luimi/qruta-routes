@@ -1,0 +1,9 @@
+.schedule {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  margin-top: 15px;
+  column-gap: 5px;
+}
+.schedule .item {
+  border-right: 1px solid rgba(0, 0, 0, 0.8);
+}
