@@ -7,6 +7,7 @@ import './style.css';
 import Detail from './detail';
 import EmptyState from './components/emptystate';
 import { qruta } from './assets';
+import { gaEvent } from './utils';
 //Docuentacion
 //leaflet
 //https://react-leaflet.js.org/docs/core-architecture/
@@ -15,8 +16,13 @@ export const App = () => {
   const [routes, setRoutes] = useState();
   const [selected, setSelected] = useState();
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    if(params.size === 0) {
+      window.open('https://www.queruta.com/routes', "_self")
+      return;
+    }
     if (!company) {
-      const params = new URLSearchParams(window.location.search);
       let companyId = params.get('company');
       if (!companyId) {
         //TODO mostrar error
