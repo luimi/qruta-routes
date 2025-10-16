@@ -19,6 +19,7 @@ export const App = () => {
     const params = new URLSearchParams(window.location.search);
 
     if(params.size === 0) {
+      gaEvent("no-params")
       window.open('https://www.queruta.com/routes', "_self")
       return;
     }
@@ -31,6 +32,8 @@ export const App = () => {
       getCompany(companyId);
     } else if (!routes) {
       getRoutes();
+      gaEvent(`company-${company}`)
+      gaEvent(document.referrer)
     }
   }, [company]);
 
@@ -72,7 +75,7 @@ export const App = () => {
               <Routes company={company} routes={routes} onSelect={onSelect} />
             )}
             <div id="qruta">
-              <a href="https://queruta.com" target="_blank" rel="noreferrer">
+              <a href="https://queruta.com" target="_blank" rel="noreferrer" onClick={() => gaEvent("logo-click")}>
                 <img src={qruta} alt="qruta"/>
               </a>
             </div>
