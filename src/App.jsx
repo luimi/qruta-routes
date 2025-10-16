@@ -23,8 +23,8 @@ export const App = () => {
       window.open('https://www.queruta.com/routes', "_self")
       return;
     }
+    let companyId = params.get('company');
     if (!company) {
-      let companyId = params.get('company');
       if (!companyId) {
         //TODO mostrar error
         return;
@@ -32,7 +32,7 @@ export const App = () => {
       getCompany(companyId);
     } else if (!routes) {
       getRoutes();
-      gaEvent(`company-${company}`)
+      gaEvent(`company-${companyId}`)
       gaEvent(document.referrer)
     }
   }, [company]);
