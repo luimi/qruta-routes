@@ -18,7 +18,7 @@ export const App = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
 
-    if(params.size === 0) {
+    if(params.size === 0 || params.get('company')) {
       gaEvent("no-params")
       window.open('https://www.queruta.com/routes', "_self")
       return;
